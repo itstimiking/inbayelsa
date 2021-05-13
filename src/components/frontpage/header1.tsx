@@ -5,9 +5,9 @@ import SlideIn from "../animation/slideIn";
 const HeaderSection1: React.FC = () => {
     return ( 
       
-        <section className="container absolute px-8">
+        <section className="container banner-content px-8">
 
-          <div className="h-1/5 w-full md:w-1/2 pt-32 md:pt-40 relative z-20">
+          <div className="h-1/5 w-full md:w-1/2 pt-32 md:pt-40 relative z-30">
 
             {/** Main Jumbotron Header ----------------------- */}
             <SlideIn>
@@ -25,7 +25,7 @@ const HeaderSection1: React.FC = () => {
 
             {/** Text ----------------------- */}
             <FadeInLate>
-              <p className="text-gray-600 pt-4">
+              <p className="text-gray-600 pt-4 md:hidden lg:block">
                 Over 3 Billion people use the internet daily. In this digital age, if your business does not have an online presence you are likely loosing up to 50% of potential clients. Thats almost half of your potential return on investments (RIO). We can fix that for you fast.
               </p>
             </FadeInLate>

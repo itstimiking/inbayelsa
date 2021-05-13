@@ -16,6 +16,7 @@
     "axios": "^0.21.1",
     "framer-motion": "^3.6.6",
     "gray-matter": "^4.0.2",
+    "lodash": "^4.17.21",
     "next": "10.0.6",
     "postcss-preset-env": "^6.7.0",
     "react": "17.0.1",

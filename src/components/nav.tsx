@@ -32,14 +32,14 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
     console.log(router.pathname + "----------------")
 
     return (
-        <nav className={"sticky h-40 w-full z-30 pt-5" + (bgColor ? "bg-white" : "")}>
+        <nav className={"sticky h-40 w-full z-50 pt-5" + (bgColor ? "bg-white" : "")}>
 
-            <div className="container mx-auto ">
+            <div className="container mx-auto pl-2">
                 <div className="">
-                    <Envelope size="15" 
+                    <MapMarked size="15" 
                         className={
                             `text-blue-500 border-gray-600 
-                            border-solid border-1 rounded-full`
+                            ring-2 ring-blue-600 ring-offset-white ring-offset-8 rounded-full`
                         } 
                     />
                 </div>
@@ -60,7 +60,7 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
 
                 {/* Navigation links ---------------------------------*/}
 
-                <div className="flex flex-wrap content-center space-x-16 text-gray-100">
+                <div className="flex flex-wrap content-center lg:space-x-10 xl:space-x-16 text-gray-100">
 
                     {// Show full links at large screen size ----------------------------
                         links.map(link => (
@@ -129,14 +129,22 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
 
                     {// Show only 3 initial top nav links at medium screen size ---------------------
                         links.slice(0, 3).map(link => (
-                            <div className="hidden md:block lg:hidden mr-5 hover:text-blue-300"
+                            <div className="hidden md:block lg:hidden mr-5 pt-1 hover:text-blue-300"
                                 key={link.title + "aa"}
                             >
-                                <span className="text-blue-200">
+                                <span className="text-gray-200 mr-1">
                                     { link.icon}
                                 </span>
-                                <Link href={link.url} passHref>
-                                    <a>{link.title}</a>
+                                <Link href={link.url} passHref >
+                                    <a
+                                        onMouseEnter={()=> showCourses(false) } 
+                                        className={ // Chang active link color to light blue if active
+                                            router.pathname == link.url ? " border-b-2 border-solid border-yellow-500" : "hover:text-yellow-500"
+                                        }
+                                    >
+                                        {link.title}
+                                        
+                                    </a>
                                 </Link>
                             </div>
                         ))
@@ -152,29 +160,37 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
                         >
                             <Bars size="25" className="pb-1" />
                         </button>
-
                         <div className={
-                            linksMd ? "flex flex-col absolute z-40 -ml-24 "
+                            linksMd ? "flex flex-col absolute w-72 -ml-52 mt-5 shadow-md"
                             : "hidden"}>
-                                <FadeInUp>
 
                                     {// Show only 3 nav links at medium screen size ---------------------
                                         links.slice(3, links.length).map(link => (
-                                            <div className="hidden md:block lg:hidden mr-4 hover:bg-blue-600 hover:text-gray-50 shadow p-4"
+                                            <FadeInUp>
+                                            <div className="hidden md:block lg:hidden mr-4 bg-blue-900 hover:bg-blue-600 hover:text-gray-50 shadow p-4"
                                                 key={link.title + "md"}
                                             >
-                                                <span className="text-blue-200">
+                                                <span className="text-gray-200 mr-4">
                                                     { link.icon}
                                                 </span>
-
-                                                <Link href={link.url} passHref>
-                                                <a> {link.title}</a>
+                                                
+                                                <Link href={link.url} passHref >
+                                                    <a
+                                                        onMouseEnter={()=> showCourses(false) } 
+                                                        className={ // Chang active link color to light blue if active
+                                                            router.pathname == link.url ? "pb-2 border-b-2 border-solid border-yellow-500" : "pb-2 hover:text-yellow-500"
+                                                        }
+                                                    >
+                                                        {link.title}
+                                                        
+                                                    </a>
                                                 </Link>
                                             </div>
+                                            </FadeInUp>
                                         ))
                                         
                                     }
-                                </FadeInUp>
+                               
 
                         </div>
                     </div>
@@ -182,31 +198,39 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
 
                     {/** Mobile menu button only vissible in mobile small screens ------------- */}
 
-                    <div className="">
+                    <div className="relative">
 
                         <button
-                            className="p-2 shadow md:hidden border-white border-solid border-b-2"
+                            className="p-2 shadow md:hidden block cursor-pointer"
                             onClick={() => setLinksSm(!linksSm) }
                         >
-                            <Bars size="27" className="pb-1" />
-                            {" "} Menu
+                            <Bars size="22" className="" />
+                            <span className="pt-5">{" "} Menu</span>
                         </button>
 
                         <div className={
-                            linksSm ? "flex flex-col absolute z-40 w-48 mt-4 -ml-4 shadow-md"
-                            : "hidden"}>
+                            linksSm ? "flex flex-col absolute w-72 -ml-44 mt-5 shadow-md"
+                            : "hidden w-0"}>
                                 <FadeInUp>
                                     {// Nav links for mobile screen ---------------------
                                         links.map(link => (
-                                            <div className="block md:hidden bg-gray-50 hover:bg-blue-600 hover:text-gray-50 shadow p-4"
+                                            <div className="block md:hidden bg-blue-900 border-solid border-r-2 border-blue-900 hover:bg-blue-600 hover:text-gray-50 shadow p-4"
                                                 key={link.title + "md"}
                                             >
-                                                <span className="text-blue-200">
+                                                <span className="text-gray-200 mr-4">
                                                     { link.icon}
                                                 </span>
                                                 
-                                                <Link href={link.url} passHref>
-                                                    <a>{link.title}</a>
+                                                <Link href={link.url} passHref >
+                                                    <a
+                                                        onMouseEnter={()=> showCourses(false) } 
+                                                        className={ // Chang active link color to light blue if active
+                                                            router.pathname == link.url ? "pb-2 border-b-2 border-solid border-yellow-500" : "pb-2 hover:text-yellow-500"
+                                                        }
+                                                    >
+                                                        {link.title}
+                                                        
+                                                    </a>
                                                 </Link>
                                             </div>
                                         ))
