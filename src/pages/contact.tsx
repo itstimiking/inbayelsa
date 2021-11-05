@@ -1,6 +1,5 @@
-import { useState } from 'react';
+
 import Head from 'next/head';
-import { motion } from 'framer-motion';
 
 import NavTop from '../components/nav';
 
@@ -8,7 +7,6 @@ import FooterSection from '../components/footersection';
 
 import { navlinks} from "../data/data";
 import HeaderBar from '../components/headerBar';
-import SlideIn from '../components/animation/slideIn';
 
 export default function Contact() {
 
@@ -27,17 +25,17 @@ export default function Contact() {
 
 
 
-{/* HEADER SECTION ------------------------------------------------------*/}
+        {/* HEADER SECTION ------------------------------------------------------*/}
 
-<HeaderBar data={{
+        <HeaderBar data={{
           heading: "Contact Digitec", 
           sub:"For more info, or consultancy feel free to reach us."
          }} 
         />
 
-{/* PROFESSIONAL COURSES SECTION ------------------------------------------------------*/}
+        {/* PROFESSIONAL COURSES SECTION ------------------------------------------------------*/}
 
-<div className=" container mx-auto grid grid-row-2 md:flex">
+          <div className=" container mx-auto grid grid-row-2 md:flex">
             <div className={`
                 row-start-2 shadow w-full md:w-2/3 h-auto 
                 px-8 md:px-12 pt-8 pb-32 flex flex-col 

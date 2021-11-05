@@ -1,6 +1,5 @@
 import { route } from 'next/dist/next-server/server/router';
 import Link from 'next/link';
-import FadeIn from './animation/fadeIn';
 import FadeInUp from './animation/fadeinUp';
 import SlideIn from './animation/slideIn';
 

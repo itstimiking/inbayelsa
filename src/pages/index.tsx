@@ -1,8 +1,5 @@
-import { useState } from "react";
+
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 import NavTop from "../components/nav";
 import HeaderSection1 from "../components/frontpage/header1";

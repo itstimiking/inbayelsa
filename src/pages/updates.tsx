@@ -3,15 +3,12 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 
 import NavTop from "../components/nav";
-import TestimonySection from "../components/testimonysection";
 import FooterSection from "../components/footersection";
 
 import { navlinks } from "../data/data";
-import { testimonies } from "../data/testimonies";
 import HeaderBar from "../components/headerBar";
 
 import FadeInUp from '../components/animation/fadeinUp';
-import { getAllPostsData } from "../lib/getPostData";
 
 const Updates = ({articles}) => {
     const [num, setnum] = useState(0);
