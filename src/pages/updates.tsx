@@ -20,7 +20,7 @@ const Updates = ({articles}) => {
     const getarticles = async (num) => {
 
         if (count < 1) {
-            const count = await fetch(`${process.env.API_URL}/count`);
+            const count = await fetch(`${process.env.API_URL}/articles/count`);
             const countnum = await count.json();
             setCount(countnum)
         }    
@@ -156,8 +156,8 @@ const Updates = ({articles}) => {
 };
 
 export async function getStaticProps({ params }) {
-    const data = await fetch(`${process.env.API_URL}`);
-    const count = await fetch(`${process.env.API_URL}/count`);
+    const data = await fetch(`${process.env.API_URL}/articles`);
+    const count = await fetch(`${process.env.API_URL}/articles/count`);
 
     const countnum = await count.json();
     const articles = await data.json();
