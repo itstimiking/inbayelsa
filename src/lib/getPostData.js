@@ -11,7 +11,7 @@ export const getPostData = async (slug) => {
 export const getAllPostsData = async () => {
     const data = await fetch(`${process.env.API_URL}`);
     const articles = await data.json();
-    
+    console.log(articles)
     return articles
 }
 

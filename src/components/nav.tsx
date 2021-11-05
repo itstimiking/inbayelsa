@@ -29,8 +29,6 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
 
     const [courses, showCourses] = useState(false);
 
-    console.log(router.pathname + "----------------")
-
     return (
         <nav className={"sticky h-40 w-full z-50 pt-5" + (bgColor ? "bg-white" : "")}>
 
@@ -166,7 +164,6 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
 
                                     {// Show only 3 nav links at medium screen size ---------------------
                                         links.slice(3, links.length).map(link => (
-                                            <FadeInUp>
                                             <div className="hidden md:block lg:hidden mr-4 bg-blue-900 hover:bg-blue-600 hover:text-gray-50 shadow p-4"
                                                 key={link.title + "md"}
                                             >
@@ -186,7 +183,6 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
                                                     </a>
                                                 </Link>
                                             </div>
-                                            </FadeInUp>
                                         ))
                                         
                                     }

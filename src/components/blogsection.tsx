@@ -5,7 +5,7 @@ import FadeInUp from './animation/fadeinUp';
 import SlideIn from './animation/slideIn';
 
 interface picture{
-    id:2,
+    id:number,
     name: string,
     alternativeText?:string | null,
     caption?:string | null,
@@ -28,11 +28,11 @@ interface author{
     firstname: string,
     lastname: string,
     about: string,
-    name:string,
+    username:string,
     email:string,
     created_at:Date,
     updated_at:Date,
-    picture: picture,
+    picture: picture[],
 }
 
 interface category {
@@ -46,14 +46,14 @@ interface category {
 interface article {
     id: number,
     title: string,
-    description: string,
+    excerpt: string,
     status: string,
     slug: string,
     content: string,
     created_at: Date,
     updated_at: Date,
     published_at: Date,
-    category: category,
+    categories: category[],
     image: picture, 
     author: author
 }
@@ -102,8 +102,9 @@ const BlogSection: React.FC<BlogSectionProps> = ({articles}) => {
                                         passHref
                                     > 
                                         <img 
-                                            src={article.image?.url ? article.image.url : ""} 
+                                            src={article.image ? article.image[0].formats.thumbnail.url : ""} 
                                             alt={article.title} 
+                                            className="w-full"
                                         />
                                     </Link>
                                 </div>
@@ -112,7 +113,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({articles}) => {
 
                                 <div className="p-4">
                                     <span className="text-xs font-light text-blue-600">
-                                        {article.category.name}
+                                        {article.categories.map(category=>category.name)}
                                     </span>
 
                                     {/* Article title --------------------------------------*/}
@@ -124,16 +125,16 @@ const BlogSection: React.FC<BlogSectionProps> = ({articles}) => {
                                     {/* Article short content text --------------------------------------*/}
                                     
                                     <p className="text-sm pt-1">
-                                        {article.description}
+                                        {article.excerpt}
                                     </p>
 
                                     {/* Article Author Section --------------------------------------*/}
                                     
                                     <div className="flex pt-3">
-                                        { article.author.picture && <img src={`http://server.inbayelsa.com/${article.author.picture.url}`} className="w-10 h-10 rounded-full" />}
+                                        { article.author.picture && <img src={article.author.picture[0].formats.thumbnail.url} className="w-10 h-10 rounded-full" />}
                                         <div className="flex flex-col pl-1">
                                             <span className="text-xs">
-                                            {article.author.name ? article.author.name : article.author.firstname}
+                                            {article.author ? article.author.firstname + " " + article.author.lastname : ""}
                                             </span>
                                             <span className="text-xs pt-1">
                                                 {article.created_at.toString().slice(0,10)}
