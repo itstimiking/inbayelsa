@@ -11,7 +11,7 @@ const BoxDeck: React.FC = () => {
           
             {
                 ar.map(x=>(
-                    <div className="w-3 h-3 bg-gray-300 mr-2 mt-2 md:hidden lg:block">
+                    <div className="w-3 h-3 bg-gray-300 mr-2 mt-2 md:hidden lg:block" key={x}>
 
                     </div>
                 ))
