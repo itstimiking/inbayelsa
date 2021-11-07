@@ -1,0 +1,66 @@
+@tailwind base; 
+@tailwind components; 
+@tailwind utilities;
+
+ 
+@layer utilities {
+
+    .banner-content{
+        position:absolute;
+    }
+
+    .banner{
+        min-height: 700px;
+        width: 100%;
+    }
+    
+    .clip{
+        clip-path: polygon(0% 100%, 20% 0%, 100% 0%, 100% 100%);
+        background-image:url("../../public/images/digitec_image_student2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        margin:0;
+    }
+    .clip-cover{
+        clip-path: polygon(0% 100%, 20% 0%, 100% 0%, 100% 100%);
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        margin:0;
+    }
+
+    .front-page-boxes-height{
+        min-height: 80vh;
+        position: relative;
+        max-height: 170vh;
+    }
+
+    .front-page-blogs-height{
+        min-height: 20vh;
+    }
+
+    .front-page-staffs-height{
+        min-height: 50vh;
+        max-height: 200hv;
+    }
+
+    .gray{
+        @apply w-screen md:flex front-page-boxes-height mx-auto px-4 md:px-8 text-gray-700 bg-gray-50;
+    }
+
+    .footerHeight{
+        @apply py-32 w-full bg-gray-600 relative flex flex-wrap flex-col;
+        min-height: 40vh;
+    }
+
+    .staffsection{
+        @apply w-screen h-full flex flex-col relative mx-auto px-4 md:px-8 text-gray-700 bg-gray-200 pb-32;
+    }
+
+    .stylistic-quote-mark{
+        @apply text-blue-900 text-6xl italic font-extrabold absolute opacity-40 pb-20
+    }
+}
