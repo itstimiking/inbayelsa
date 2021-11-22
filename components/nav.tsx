@@ -7,6 +7,7 @@ import { Bars } from '@styled-icons/fa-solid';
 import FadeInUp from './animation/fadeinUp';
 
 import { Phone, Envelope, MapMarked} from '@styled-icons/fa-solid';
+import { useThemeContext } from '../context/themeContext';
 
 interface navlink {// Each link interface
     title: string,
@@ -19,7 +20,7 @@ interface Props { // Array of all links
     bgColor?: boolean,
 }
 
-const NavTop: React.FC<Props> = ({ links , bgColor}) => {
+const NavTop: React.FC<Props> = ({ links}) => {
 
     const router = useRouter();
 
@@ -28,25 +29,86 @@ const NavTop: React.FC<Props> = ({ links , bgColor}) => {
 
     const [courses, showCourses] = useState(false);
 
-    return (
-        <nav className={"sticky h-40 w-full z-50 pt-5" + (bgColor ? "bg-white" : "")}>
+    const {theme} = useThemeContext()
 
-            <div className="container mx-auto pl-2">
-                <div className="">
-                    <MapMarked size="15" 
-                        className={
-                            `text-blue-500 border-gray-600 
-                            ring-2 ring-blue-600 ring-offset-white ring-offset-8 rounded-full`
-                        } 
+    return (
+        <nav className={"relative h-40 w-full z-50 pt-5"}>
+
+            <div className="container mx-auto md:px-12 flex space-x-6">
+                <div className=" flex itemes-center space-x-2">
+
+                    <MapMarked 
+                        size="30"
+                        className="p-1 mt-1"
+                        style={{
+                            borderRadius:"50%", 
+                            borderStyle:"solid",
+                            borderColor: theme.primary.rgb, 
+                            color: theme.primary.rgb, 
+                            borderWidth:"2px"
+                        }}
                     />
+                    <span className="flex flex-col h-full"
+                        style={{color:theme.secondary.rgb}}
+                    >
+                        <small>No 271 chf melford okilo rd</small>
+                        <small>Amarata, Yenagoa</small>
+                    </span>
+
+                </div>
+
+                <div className=" flex itemes-center space-x-2">
+
+                    <Phone 
+                        size="30"
+                        className="p-1 mt-1"
+                        style={{
+                            borderRadius:"50%", 
+                            borderStyle:"solid",
+                            borderColor: theme.primary.rgb, 
+                            color: theme.primary.rgb, 
+                            borderWidth:"2px"
+                        }}
+                    />
+                    <span className="flex flex-col h-full"
+                        style={{color:theme.secondary.rgb}}
+                    >
+                        <small>08064655310</small>
+                        <small>07054477323</small>
+                    </span>
+
+                </div>
+
+                <div className="itemes-center space-x-2 hidden sm:flex">
+
+                    <Envelope
+                        size="30"
+                        className="p-1 mt-1"
+                        style={{
+                            borderRadius:"50%", 
+                            borderStyle:"solid",
+                            borderColor: theme.primary.rgb, 
+                            color: theme.primary.rgb, 
+                            borderWidth:"2px"
+                        }}
+                    />
+                    <span className="flex flex-col h-full"
+                        style={{color:theme.secondary.rgb}}
+                    >
+                        <small>contact@inbayelsa.com</small>
+                        <small></small>
+                    </span>
+
                 </div>
             </div>
             
             <div className={
                     `container mx-auto px-8 md:pl-12 mt-5 flex 
                     flex-wrap space-x-10 content-center 
-                    bg-blue-900 justify-between`
+                     justify-between rounded-lg sticky top-0`
                 } 
+
+                style={{backgroundColor: theme.secondary.rgb}}
             >
 
                 {/* Digitec Logo -------------------------------------*/}
