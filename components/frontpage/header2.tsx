@@ -44,7 +44,6 @@ const HeaderSection2: React.FC = () => {
         }
         
     },[])
-    useEffect(()=>{},[image])
 
     return ( 
         <section className="w-full clip-cover md:w-1/2 relative md:relative z-10">  
