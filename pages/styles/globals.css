@@ -16,7 +16,6 @@
     
     .clip{
         clip-path: polygon(0% 100%, 20% 0%, 100% 0%, 100% 100%);
-        background-image:url("../../public/images/digitec_image_student2.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         box-sizing: border-box;
@@ -24,6 +23,7 @@
         -webkit-box-sizing: border-box;
         margin:0;
     }
+    
     .clip-cover{
         clip-path: polygon(0% 100%, 20% 0%, 100% 0%, 100% 100%);
         box-sizing: border-box;

@@ -9,6 +9,7 @@ import FadeInUp from './animation/fadeinUp';
 import { Phone, Envelope, MapMarked} from '@styled-icons/fa-solid';
 import { useThemeContext } from '../context/themeContext';
 
+
 interface navlink {// Each link interface
     title: string,
     url: string,
@@ -29,24 +30,26 @@ const NavTop: React.FC<Props> = ({ links}) => {
 
     const [courses, showCourses] = useState(false);
 
-    const {theme} = useThemeContext()
+    const {theme} = useThemeContext();
+
+    const iconStyle = {
+        borderRadius:"50%", 
+        borderStyle:"solid",
+        borderColor: theme.accent.rgb, 
+        color: theme.accent.rgb, 
+        borderWidth:"2px"
+    }
 
     return (
         <nav className={"relative h-40 w-full z-50 pt-5"}>
 
-            <div className="container mx-auto md:px-12 flex space-x-6">
+            <div className="container mx-auto px-6 md:px-12 flex space-x-6">
                 <div className=" flex itemes-center space-x-2">
 
                     <MapMarked 
                         size="30"
                         className="p-1 mt-1"
-                        style={{
-                            borderRadius:"50%", 
-                            borderStyle:"solid",
-                            borderColor: theme.primary.rgb, 
-                            color: theme.primary.rgb, 
-                            borderWidth:"2px"
-                        }}
+                        style={iconStyle}
                     />
                     <span className="flex flex-col h-full"
                         style={{color:theme.secondary.rgb}}
@@ -62,13 +65,7 @@ const NavTop: React.FC<Props> = ({ links}) => {
                     <Phone 
                         size="30"
                         className="p-1 mt-1"
-                        style={{
-                            borderRadius:"50%", 
-                            borderStyle:"solid",
-                            borderColor: theme.primary.rgb, 
-                            color: theme.primary.rgb, 
-                            borderWidth:"2px"
-                        }}
+                        style={iconStyle}
                     />
                     <span className="flex flex-col h-full"
                         style={{color:theme.secondary.rgb}}
@@ -84,13 +81,7 @@ const NavTop: React.FC<Props> = ({ links}) => {
                     <Envelope
                         size="30"
                         className="p-1 mt-1"
-                        style={{
-                            borderRadius:"50%", 
-                            borderStyle:"solid",
-                            borderColor: theme.primary.rgb, 
-                            color: theme.primary.rgb, 
-                            borderWidth:"2px"
-                        }}
+                        style={iconStyle}
                     />
                     <span className="flex flex-col h-full"
                         style={{color:theme.secondary.rgb}}
@@ -103,7 +94,7 @@ const NavTop: React.FC<Props> = ({ links}) => {
             </div>
             
             <div className={
-                    `container mx-auto px-8 md:pl-12 mt-5 flex 
+                    `container mx-auto px-6 md:px-12 mt-5 flex 
                     flex-wrap space-x-10 content-center 
                      justify-between rounded-lg sticky top-0`
                 } 

@@ -35,7 +35,7 @@ export default function Index({ articles }) {
 
             <main className="text-gray-700">
                 <header className="flex -mt-14 py-50  justify-center relative banner overflow-hidden"
-                    style={{backgroundColor: theme.background.rgb}}
+                    style={{backgroundColor: theme.primary.rgb}}
                 >
                     {/** Main Jumbotron Header section ----------------------- */}
                     <HeaderSection1 />
