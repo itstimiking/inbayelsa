@@ -1,32 +1,36 @@
+
 import {useState, useEffect} from 'react';
-import FadeInUp from '../animation/fadeinUp';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Props{
     image: string
 }
-const ImageSlide: React.FC<Props> = ({image}) => {
+const ImageSlide: React.FC<Props> = ({image }) => {
+
 
     return (
-        <div
-            className="w-full h-full absolute top-0 left-0"
-            style={{
-                backgroundImage: image
-            }}
-        >
+        <AnimatePresence>
+        <motion.img
+            className="w-full absolute"
+            src={image}
 
-        </div>
+            animate={{ x: 0 }}
+            initial={{x:-1000}}
+            exit={{x:-1000}}
+            transition={{ duration: 2}}
+        />
+        </AnimatePresence>
     )
 }
 
 const HeaderSection2: React.FC = () => {
-
-    const [image, setImage] = useState('url("/images/digitec_image_student.jpg")');
+    
+    const [image, setImage] = useState<any>();
     let count = 0;
 
     const images = [
-        'url("/images/digitec_image_student.jpg")',
-        'url("/images/digitec_image_student2.jpg")',
-        'url("/images/laptop_digitec.jpg")'
+        <ImageSlide image={'url("/images/inbayelsa_image_website2.jpg")'} /> ,
+        <ImageSlide image={'url("/images/inbayelsa_image_website.jpg")'} /> ,
     ]
 
     useEffect(()=>{
@@ -37,6 +41,7 @@ const HeaderSection2: React.FC = () => {
             }else{
                 count = 0
             }
+
         },3000)
 
         return ()=> {
@@ -47,8 +52,10 @@ const HeaderSection2: React.FC = () => {
 
     return ( 
         <section className="w-full clip-cover md:w-1/2 relative md:relative z-10">  
-            <div className="clip w-full h-full opacity-70 md:opacity-100 mix-blend-darken relative">
-                <ImageSlide image={image} /> 
+            <div className="clip w-full h-full opacity-70 md:opacity-100 mix-blend-darken relative"
+                style={{backgroundImage:'url("/images/inbayelsa_image_website.jpg")'}}
+            >
+                { image }
             </div>
         </section>
     );
