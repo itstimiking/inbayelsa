@@ -28,7 +28,7 @@ const SecondSection: React.FC<SecondSectionProps> = ({heading, contents}) => {
 
                 {// Box content for the second sectoin -------------------------------
                     contents.map((content, index)=>(
-                        <div className="w-full pt-8 md:pt-1 md:w-2/4" key={index}>
+                        <div className="w-full pt-8 md:pt-1 md:w-2/4 px-5 mb-10" key={index}>
                             <FadeIn>
                             <p className="w-10 h-10 mb-4 p-2 bg-blue-600 text-gray-50 flex justify-center">
                                 {content.icon}

@@ -69,13 +69,13 @@ const BlogSection: React.FC<BlogSectionProps> = ({articles}) => {
                 {/* BLOG section heading ------------------------------------*/}
 
                 <h2 className="text-bold text-2xl w-full text-center">
-                    From the blog
+                    Our Updates
                 </h2>
 
                 {/* BLog section sub heading -----------------------------*/}
                 <SlideIn>
                     <p className="text-center w-full md:w-2/3 lg:w-2/5 mx-auto pt-5">
-                        Consequuntur illo beatae saepe commodi alias veniam ullam quaerat voluptatem odit eos aspernatur.
+                        Sometimes we feel the need to ramble about something interesting, you can read a few of these below, and if you like what you read then subscribe to our newsletter so you can get these updates straight to your email.
                     </p>
                 </SlideIn>
             </div>

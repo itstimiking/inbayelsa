@@ -19,10 +19,10 @@ const FooterSection: React.FC<FooterSectionProps> = ({links}) => {
                 <div className="w-1/2 lg:w-1/4 md:w-1/3">
                     <p>SOLUTIONS</p>
                     <ul className="text-sm pt-4 flex flex-col space-y-3">
-                        <li>Marketing</li>
-                        <li>Analytics</li>
-                        <li>Commerce</li>
-                        <li>Insight</li>
+                        <li>Web Development</li>
+                        <li>Digital Ad marketing</li>
+                        <li>MObile app development</li>
+                        <li>Custom software development</li>
                         
                     </ul>
                 </div>
@@ -49,8 +49,8 @@ const FooterSection: React.FC<FooterSectionProps> = ({links}) => {
                     <ul className="text-sm pt-4 flex flex-col space-y-3">
                         <li>FAQ</li>
                         <li>Site map</li>
-                        <li>Call: </li>
-                        <li>Insight</li>
+                        <li>Call: 08064655310</li>
+                        <li>Email: contact@inbayelsa.com</li>
                         
                     </ul>
                 </div>
@@ -65,7 +65,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({links}) => {
                     </h2>
 
                     <p className="text-xs pr-4">
-                        All the latest news, vacancy and programmes straigth to your inbox, be the firs to know
+                        Stay connected as we bring you more and more ICT informations.
                     </p>
 
                 </div>
@@ -91,7 +91,7 @@ const FooterSection: React.FC<FooterSectionProps> = ({links}) => {
 
             <div className="w-full h-1/5 bg-gray-900 p-8 flex">
                 <p className="opacity-50 text-sm w-full sm:w-1/2">
-                    2020 Digitec Hub. All rights reserved.
+                    2020 Inbayelsa.com. All rights reserved.
                 </p>
 
                 <p className="w-full sm:w-1/2 flex flex-wrap space-x-4 justify-end">

@@ -7,13 +7,11 @@ import HeaderSection2 from "../components/frontpage/header2";
 
 import SecondSection from "../components/frontpage/secondsection";
 import BlogSection from "../components/blogsection";
-import StaffSection from "../components/staffsection";
-import TestimonySection from "../components/testimonysection";
+import Brands from "../components/brands";
 
 import { navlinks, boxes } from "../data/data";
 
-import { staffs } from "../data/staffs";
-import { testimonies } from "../data/testimonies";
+import { brands } from "../data/brands";
 import FooterSection from "../components/footersection";
 
 import { getAllPostsData } from "../lib/getPostData";
@@ -56,9 +54,7 @@ export default function Index({ articles }) {
 
                 <BlogSection articles={articles} />
 
-                <StaffSection staffs={staffs} />
-
-                <TestimonySection testimonies={testimonies} />
+                <Brands brands={brands} />
 
                 <FooterSection links={navlinks} />
             </main>
