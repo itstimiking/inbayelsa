@@ -13,7 +13,7 @@ export default function Contact() {
   return (
     <div className="text-xl leading-loose" >
       <Head>
-        <title>Digitec Hub Official website</title>
+        <title>Contact us Inbayelsa.com</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -28,7 +28,7 @@ export default function Contact() {
         {/* HEADER SECTION ------------------------------------------------------*/}
 
         <HeaderBar data={{
-          heading: "Contact Digitec", 
+          heading: "Contact Us", 
           sub:"For more info, or consultancy feel free to reach us."
          }} 
         />
@@ -44,28 +44,7 @@ export default function Contact() {
               `}
             >
 
-                <p>
-                  We are an ICT firm in the southern region of Nigeria that has pioneered ICT & Professional Course training and we never stopped.
-                </p>
-
-                <p>
-                  As changes in technology have accelerated, it’s become even more essential for people to master technology to be productive, invaluable employees who optimize, program and invent solutions and even grow companies of their own.
-                </p>
-                <p>
-                  For 12 years DIGITEC has provided students with industry leading technical training that delivers the most relevant and intuitive computer/ICT & Professional courses and certifications.
-                </p>
-                <p>
-                  Official training partner for Professional body leaders such as WORLD SAFETY ORGANISATION DIGITEC is a Renowned ICT & Professional Course training providers. For students that means training with the highest quality source materials and the latest products and technologies. For businesses it means getting the highest return on their training investment.
-                </p>
-
-                <h2 className="font-bold text-lg py-8">Invest in courses and certifications that advance careers:</h2>
-
-                <p>
-                  All of DIGITEC’s Learning Methods deliver the same comprehensive content in online and traditional classroom settings, at your worksite, and self-paced with one-on-one support.
-                </p>
-                <p>We’ll create innovative training solutions that work for your business and we’ll account for the results whether your company is small, mid-sized or a global enterprise.
-                </p>
-                <p>DIGITEC is blazing new career paths every day.</p>
+                
 
             </div>
 
