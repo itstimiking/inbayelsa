@@ -11,7 +11,7 @@ import HeaderBar from '../components/headerBar';
 export default function Contact() {
 
   return (
-    <div>
+    <div className="text-xl leading-loose" >
       <Head>
         <title>Digitec Hub Official website</title>
         <link rel="icon" href="/favicon.ico" />

@@ -15,7 +15,7 @@ import SlideIn from '../components/animation/slideIn';
 export default function CoursesIct() {
 
   return (
-    <div>
+    <div className="text-xl leading-loose" >
       <Head>
         <title>Digitec Hub Official website</title>
         <link rel="icon" href="/favicon.ico" />

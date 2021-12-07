@@ -44,7 +44,7 @@ const Post: React.FC<PostProps> = ({ article }) => {
     return (
         <div>
             <Head>
-                <title>Digitec Hub Official website</title>
+                <title> {article.title} inbayelsa.com </title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -61,26 +61,29 @@ const Post: React.FC<PostProps> = ({ article }) => {
                 />
 
                 <div className="grid grid-row-2 md:flex">
-                    <div className="row-start-2 shadow w-full md:w-2/3 h-auto px-8 md:px-12 pt-8 pb-32 flex flex-col space-y-4 text-justify text-gray-600">
-                        <img
-                            src={article.image.url}
-                            alt={article.title}
-                            className="shadow-ms mb-5 ring-4 ring-gray-100 ring-offset-4 ring-offset-white rounded"
-                        />
+                    <div className="row-start-1 shadow w-full md:w-2/3 h-auto px-8 md:px-12 pt-8 pb-32 flex flex-col space-y-4 text-justify text-gray-600">
+                        {
+                            article?.image && (
+                                <figure 
+                                    className="shadow-ms mb-5 ring-4 ring-gray-100 ring-offset-4 ring-offset-white rounded"
+                                >
+                                    <img
+                                        src={article.image[0].url}
+                                        alt={article.image[0].alternativeText}
+                                        className="w-full rounded"
+                                    />
+                                    <figcaption> {article.image[0].caption} </figcaption>
+                                </figure>
+                            )
+                        }
+
                         <div dangerouslySetInnerHTML={{__html:content}} />
                         
                     </div>
-                    <div className="row-start-1 w-full md:w-1/3 h-auto p-8">
-                        <img
-                            src="/images/logo_digitec.png"
-                            className="object-cover w-full"
-                        />
+                    <div className="row-start-2 w-full md:w-1/3 h-auto p-8">
+                        <img src="/logo_inbayelsa_vertical_light.png" className="object-cover w-full" />
                     </div>
                 </div>
-
-                <StaffSection staffs={staffs} />
-
-                <TestimonySection testimonies={testimonies} />
 
                 <FooterSection links={navlinks} />
             </main>

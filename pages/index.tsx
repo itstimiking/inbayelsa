@@ -23,7 +23,7 @@ export default function Index({ articles }) {
     const {theme} = useThemeContext();
 
     return (
-        <div>
+        <div className="text-xl leading-loose" >
             <Head>
                 <title>Taking bayelsa to a digital space</title>
                 <link rel="icon" href="/favicon.ico" />

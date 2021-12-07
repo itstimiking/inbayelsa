@@ -30,9 +30,9 @@ const Updates = ({articles}) => {
     }, [ num]);
 
     return (
-        <div>
+        <div className="text-xl leading-loose" >
             <Head>
-                <title>Digitec Hub Official website</title>
+                <title>Inbayelsa updates, news, events and anouncements</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -43,33 +43,30 @@ const Updates = ({articles}) => {
 
                 <HeaderBar
                     data={{
-                        heading: "Updates",
-                        sub:
-                            "Catchup on all our blog updates and stay informed about all ict related events in Bayelsa and the world at large",
+                        heading: "Our Updates",
+                        sub:"Catch up on our news updates and stay informed about all ict related events in Bayelsa and the world at large",
                     }}
                 />
 
                 <section className=" container mx-auto grid grid-row-2 md:flex">
-                    <div className={`
-                        row-start-2 shadow w-full md:w-2/3 h-auto 
-                        px-8 md:px-12 pt-8 pb-32 flex flex-col 
-                        space-y-4 text-justify text-gray-600
-                        border-l-2 border-solid
-                    `}
+                    <div className={
+                        `row-start-1 shadow w-full md:w-2/3
+                        px-4 sm:px-8 md:px-12 pt-8 pb-32 flex flex-col sm:flex-row flex-wrap
+                        space-y-4 sm:space-y-0 text-gray-600
+                        border-l-2 border-solid`
+                    }
                     >
 
                         {// BLog Section article cards, 4 cols @lg to @xl, 3 col @md and 2 @sm -------
                             articles.map(article=>(
                                 
-                                <div className=" w-full sm:w-1/2 md:w-1/3 xl:w-1/4 px-4 pt-8 lg:pt-0" key={ article.title}>
-
-                                    <div className="shadow-md">
+                                <div className=" w-full sm:w-5/12 mr-10 shadow mb-10" key={ article.id} >
 
                                     <FadeInUp>
 
                                         {/* Article featured image --------------------------------*/}
 
-                                        <div className="object-cover w-full h-40 rounded rounded-b-none overflow-hidden">
+                                        <div className="object-cover w-full h-60 rounded rounded-b-none overflow-hidden">
                                             <Link 
                                                 href="/post/[slug]"
                                                 as={`/post/${article.slug}`}
@@ -78,7 +75,7 @@ const Updates = ({articles}) => {
                                                 <img 
                                                     src={article.image ? article.image[0].formats.thumbnail.url : ""} 
                                                     alt={article.title} 
-                                                    className="w-full"
+                                                    className="w-full h-full"
                                                 />
                                             </Link>
                                         </div>
@@ -93,13 +90,26 @@ const Updates = ({articles}) => {
                                             {/* Article title --------------------------------------*/}
                                             
                                             <h2 className="font-bold">
-                                            {article.title}
+                                                <Link 
+                                                    href="/post/[slug]"
+                                                    as={`/post/${article.slug}`}
+                                                    passHref
+                                                > 
+                                                    {article.title}
+                                                </Link>
                                             </h2>
 
                                             {/* Article short content text --------------------------------------*/}
                                             
                                             <p className="text-sm pt-1">
-                                                {article.excerpt}
+                                                {article.excerpt.slice(0, 120)} 
+                                                <Link 
+                                                    href="/post/[slug]"
+                                                    as={`/post/${article.slug}`}
+                                                    passHref
+                                                > 
+                                                    ...&nbsp;Read More 
+                                                </Link>
                                             </p>
 
                                             {/* Article Author Section --------------------------------------*/}
@@ -117,7 +127,6 @@ const Updates = ({articles}) => {
                                             </div>
                                         </div>
                                         </FadeInUp>
-                                    </div>
                                     
                                 </div>
                             ))
@@ -126,9 +135,10 @@ const Updates = ({articles}) => {
 
                     </div>
 
-                    <div className="row-start-1 w-full md:w-1/3 h-auto p-8" >
-                        <img src="/images/logo_digitec.png" className="object-cover w-full" />
+                    <div className="row-start-2 w-full md:w-1/3 h-auto p-8" >
+                        <img src="/logo_inbayelsa_vertical_light.png" className="object-cover w-full" />
                     </div>
+
                 </section>  
 
 
@@ -158,6 +168,8 @@ export async function getStaticProps({ params }) {
 
     const countnum = await count.json();
     const articles = await data.json();
+
+    articles.sort((a,b)=> a.id - b.id)
 
     return {
         props: { articles, count: countnum },

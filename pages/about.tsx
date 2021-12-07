@@ -15,9 +15,9 @@ import HeaderBar from '../components/headerBar';
 export default function About() {
 
   return (
-    <div>
+    <div className="text-xl leading-loose" >
       <Head>
-        <title>Digitec Hub Official website</title>
+        <title>About Inbayelsa, all you should know</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -30,8 +30,8 @@ export default function About() {
 {/* HEADER SECTION ------------------------------------------------------*/}
 
         <HeaderBar data={{
-          heading: "About Digitec", 
-          sub:"From humble begining to where we are now."
+          heading: "About Inbayelsa.com", 
+          sub:"We need you to need us."
          }} 
         />
 
@@ -40,45 +40,57 @@ export default function About() {
         <div className=" container mx-auto grid grid-row-2 md:flex">
             <div className={`
                 row-start-2 shadow w-full md:w-2/3 h-auto 
-                px-8 md:px-12 pt-8 pb-32 flex flex-col 
-                space-y-4 text-justify text-gray-600
-                border-l-2 border-solid
+                px-8 md:px-12 pt-8 pb-32 sm:flex sm:space-x-5 text-gray-600
+                border-l-2 border-solid 
               `}
             >
 
-                <p>
-                  We are an ICT firm in the southern region of Nigeria that has pioneered ICT & Professional Course training and we never stopped.
-                </p>
+                <div 
+                  className="w-full sm:w-1/2 min-h-0 rounded-lg -mt-12 bg-gray-100 mb-10 p-10 "
+                >
+                    <fieldset 
+                        className="w-full h-60 border border-gray-300 reounded-lg p-5"
+                    >
+                      <legend className="mx-5 px-5">Our Mission</legend>
 
-                <p>
-                  As changes in technology have accelerated, it’s become even more essential for people to master technology to be productive, invaluable employees who optimize, program and invent solutions and even grow companies of their own.
-                </p>
-                <p>
-                  For 12 years DIGITEC has provided students with industry leading technical training that delivers the most relevant and intuitive computer/ICT & Professional courses and certifications.
-                </p>
-                <p>
-                  Official training partner for Professional body leaders such as WORLD SAFETY ORGANISATION DIGITEC is a Renowned ICT & Professional Course training providers. For students that means training with the highest quality source materials and the latest products and technologies. For businesses it means getting the highest return on their training investment.
-                </p>
+                      <p>
+                        Connect every business, indivudual or organization to digital opportunities and a global customer base. 
+                      </p>
+                    </fieldset>
 
-                <h2 className="font-bold text-lg py-8">Invest in courses and certifications that advance careers:</h2>
+                    <fieldset 
+                        className="w-full h-60 border border-gray-300 reounded-lg p-5 mt-10"
+                    >
+                      <legend className="mx-5 px-5">Our Vission</legend>
 
-                <p>
-                  All of DIGITEC’s Learning Methods deliver the same comprehensive content in online and traditional classroom settings, at your worksite, and self-paced with one-on-one support.
-                </p>
-                <p>We’ll create innovative training solutions that work for your business and we’ll account for the results whether your company is small, mid-sized or a global enterprise.
-                </p>
-                <p>DIGITEC is blazing new career paths every day.</p>
+                      <p>
+                        Connect every business, indivudual or organization to digital opportunities and a global customer base. 
+                      </p>
+                    </fieldset>
+                </div>
+
+                <div className="w-full sm:w-1/2 p-5 flex flex-col space-y-10">
+
+                  <p>
+                    Inbayelsa.com offers end-to-end digital solutions to help businesses in bayelsa deploy web solutions that can increase sales, improve business coverage and attract more customers.
+                    It is a technology driven world and we provide all the tech services that a business will need to expand and grow digitally.
+                  </p>
+
+                  <p>
+                    Traditional media platforms are getting floorded, and yet they are not as productive as they once where. The world is already a digital one. 
+                    We help businesses to establish a successful digital pressence.
+                  </p>
+
+                </div>
+                
 
             </div>
 
             <div className="row-start-1 w-full md:w-1/3 h-auto p-8" >
-                <img src="/images/logo_digitec.png" className="object-cover w-full" />
+               <img src="/logo_inbayelsa_vertical_light.png" className="object-cover w-full" />
             </div>
         </div>
 
-        <StaffSection staffs={staffs} />
-
-        <TestimonySection testimonies={ testimonies }/>
 
         <FooterSection links={navlinks} />
 

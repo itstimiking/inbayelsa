@@ -41,9 +41,9 @@ const NavTop: React.FC<Props> = ({ links}) => {
     }
 
     return (
-        <nav className={"relative h-40 w-full z-50 pt-5"}>
+        <nav className="relative h-40 w-full z-50 pt-5">
 
-            <div className="container mx-auto px-6 md:px-12 flex space-x-6">
+            <div className="text-sm leading-0 container mx-auto px-6 md:px-12 flex space-x-6">
                 <div className=" flex itemes-center space-x-2">
 
                     <MapMarked 

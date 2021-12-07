@@ -1,4 +1,4 @@
-import { Heading } from "@styled-icons/fa-solid"
+import { useThemeContext } from "../context/themeContext";
 
 interface data {
     heading: string,
@@ -10,8 +10,17 @@ export interface HeaderBarProps {
 }
  
 const HeaderBar : React.FC<HeaderBarProps> = ({data}) => {
+
+    const {theme} = useThemeContext();
+
     return ( 
-        <div className="bg-gray-200 px-8 md:pl-12 text-gray-700 flex flex-col min-h-60 pt-28 w-full pb-12">
+        <div 
+            className="px-8 md:pl-12 flex flex-col min-h-60 pt-28 w-full pb-12 -mt-10"
+            style={{
+                backgroundColor: theme.primary.rgb,
+                color: theme.text.rgb
+            }}
+        >
 
             <h2 className="font-bold text-3xl pb-2"> 
                 {data.heading}
