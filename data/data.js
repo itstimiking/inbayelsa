@@ -23,7 +23,7 @@ export const boxes = {
     {
       icon:  <Ad size="27" className="pb-2" />, 
       title: " Advertise Online ", 
-      text:" We can help you run successful online ad campaigns, reach your clients where they hang out using social media ad targetting and google ads. "
+      text:" We can help you run successful online ad campaigns, reach your clients where they hang out using social media ad targeting and google ads. "
     },
     {
       icon:  <MobileAlt size="27" className="pb-2" />, 
@@ -33,7 +33,7 @@ export const boxes = {
     {
       icon:  <LaptopCode size="27" className="pb-2" />, 
       title: " Custom Business Software ", 
-      text:"There is no reason why your business should not have custom software to help your manage things in your own specific way. We can build the software your business needs."
+      text:"There is no reason why your business should not have custom software to help you manage things in your own specific way. We can build the software your business needs."
     },
   ]
 }

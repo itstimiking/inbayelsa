@@ -13,7 +13,7 @@ import HeaderBar from "../components/headerBar";
 
 export default function About() {
     return (
-        <div className="text-xl leading-loose">
+        <div className="">
             <Head>
                 <title>About Inbayelsa, all you should know</title>
                 <link rel="icon" href="/favicon.ico" />

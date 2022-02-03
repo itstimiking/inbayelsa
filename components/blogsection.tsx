@@ -74,8 +74,11 @@ const BlogSection: React.FC<BlogSectionProps> = ({articles}) => {
 
                 {/* BLog section sub heading -----------------------------*/}
                 <SlideIn>
-                    <p className="text-center w-full md:w-2/3 lg:w-2/5 mx-auto pt-5">
-                        Sometimes we feel the need to ramble about something interesting, you can read a few of these below, and if you like what you read then subscribe to our newsletter so you can get these updates straight to your email.
+                    <p className="text-center w-full md:w-3/4 lg:w-4/5 mx-auto pt-5">
+                        Sometimes we feel the need to ramble about something interesting, 
+                        you can read a few of these below, and if you like what you read 
+                        then subscribe to our newsletter so you can get these updates 
+                        straight to your email.
                     </p>
                 </SlideIn>
             </div>

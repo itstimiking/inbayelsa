@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-import { StyledIcon } from '@styled-icons/styled-icon';
 import { Bars } from '@styled-icons/fa-solid';
 import FadeInUp from './animation/fadeinUp';
 
@@ -13,7 +12,6 @@ import { useThemeContext } from '../context/themeContext';
 interface navlink {// Each link interface
     title: string,
     url: string,
-    icon?: JSX.Element
 }
 
 interface Props { // Array of all links 
@@ -24,26 +22,26 @@ interface Props { // Array of all links
 const NavTop: React.FC<Props> = ({ links}) => {
 
     const router = useRouter();
+    const nav = useRef(null);
 
     const [linksMd, setLinksMd] = useState(false);
     const [linksSm, setLinksSm] = useState(false);
-
-    const [courses, showCourses] = useState(false);
 
     const {theme} = useThemeContext();
 
     const iconStyle = {
         borderRadius:"50%", 
         borderStyle:"solid",
-        borderColor: theme.accent.rgb, 
-        color: theme.accent.rgb, 
+        color: theme.primary.rgb, 
         borderWidth:"2px"
     }
 
     return (
         <nav className="relative h-40 w-full z-50 pt-5">
 
-            <div className="text-sm leading-0 container mx-auto px-6 md:px-12 flex space-x-6">
+            <div className="text-sm leading-0 container mx-auto px-6 md:px-12 flex space-x-6"
+                style={{color:theme.secondary.rgb}}
+            >
                 <div className=" flex itemes-center space-x-2">
 
                     <MapMarked 
@@ -51,9 +49,7 @@ const NavTop: React.FC<Props> = ({ links}) => {
                         className="p-1 mt-1"
                         style={iconStyle}
                     />
-                    <span className="flex flex-col h-full"
-                        style={{color:theme.secondary.rgb}}
-                    >
+                    <span className="flex flex-col h-full">
                         <small>No 271 chf melford okilo rd</small>
                         <small>Amarata, Yenagoa</small>
                     </span>
@@ -67,9 +63,7 @@ const NavTop: React.FC<Props> = ({ links}) => {
                         className="p-1 mt-1"
                         style={iconStyle}
                     />
-                    <span className="flex flex-col h-full"
-                        style={{color:theme.secondary.rgb}}
-                    >
+                    <span className="flex flex-col h-full">
                         <small>08064655310</small>
                         <small>07054477323</small>
                     </span>
@@ -83,9 +77,7 @@ const NavTop: React.FC<Props> = ({ links}) => {
                         className="p-1 mt-1"
                         style={iconStyle}
                     />
-                    <span className="flex flex-col h-full"
-                        style={{color:theme.secondary.rgb}}
-                    >
+                    <span className="flex flex-col h-full">
                         <small>contact@inbayelsa.com</small>
                         <small></small>
                     </span>
@@ -93,18 +85,18 @@ const NavTop: React.FC<Props> = ({ links}) => {
                 </div>
             </div>
             
-            <div className={
+            <div 
+                className={
                     `container mx-auto px-6 md:px-12 mt-5 flex 
                     flex-wrap space-x-10 content-center 
-                     justify-between rounded-lg sticky top-0`
+                     justify-between rounded-lg top-0 relative bg-gray-900`
                 } 
-
-                style={{backgroundColor: theme.secondary.rgb}}
+                ref={nav}
             >
 
-                {/* Digitec Logo -------------------------------------*/}
+                {/* Logo -------------------------------------*/}
                 <div className="flex flex-wrap content-center h-20">
-                    <img src="/images/logo_inbayelsa.png" className="w-52" />
+                    <img src="/images/logo_inbayelsa.png" className="w-44" />
                 </div>
 
 
@@ -114,65 +106,22 @@ const NavTop: React.FC<Props> = ({ links}) => {
 
                     {// Show full links at large screen size ----------------------------
                         links.map(link => (
-                            <div className="hidden lg:block mr-5 "
-                                key={link.title + "aa"}
+                            <div className="hidden lg:block mr-3"
+                                key={link.title}
                             >
-
-                                <span className="text-gray-200 mr-1">
-                                    { link.icon}
-                                </span>
-
-                                { link.url === "/courses" ? (
-                                    <Link href="#" >
-                                        <a 
-                                            onMouseEnter={()=>showCourses(!courses)}
-                                            onClick={()=>link.url === "/courses" && showCourses(!courses) }
-                                            className={ // Chang active link color to light blue if active
-                                                router.pathname == link.url ? "text-red-500 border-b-2 border-solid border-yellow-500" : "hover:text-yellow-500"
-                                            }
-                                        >
-
-                                            {link.title}
-
-                                        </a>
-                                    </Link>
-                                    )
-                                    : (
-                                        <Link href={link.url} passHref >
-                                            <a
-                                                onMouseEnter={()=> showCourses(false) } 
-                                                className={ // Chang active link color to light blue if active
-                                                    router.pathname == link.url ? " border-b-2 border-solid border-yellow-500" : "hover:text-yellow-500"
-                                                }
-                                            >
-                                                {link.title}
-                                                
-                                            </a>
-                                        </Link>
-                                    )
-                                }
-
-                                {/* Dropdown Links for the courses pages -----------------*/}
-                                { link.url === "/courses" && (
-                                    <div 
-                                        className={!courses? "hidden" :"absolute  mt-4 "}
+                                <Link href={link.url} passHref >
+                                    <a
+                                        className={ // Chang active link color 
+                                            router.pathname == link.url ? 
+                                                " text-white" : 
+                                                "hover:text-yellow-50"
+                                        }
                                     >
-                                        <FadeInUp>
-                                        <div className="bg-gray-100 flex flex-col">
-                                            <Link href="/courses_pro" passHref>
-                                                <a className="shadow p-4 hover:bg-blue-600 hover:text-gray-50"> 
-                                                    Professional Courses
-                                                </a>
-                                            </Link>
-                                            <Link href="/courses_ict" passHref>
-                                                <a className="shadow p-4 hover:bg-blue-600 hover:text-gray-50"> 
-                                                    ICT Courses 
-                                                </a>
-                                            </Link>
-                                        </div>
-                                        </FadeInUp>
-                                    </div>
-                                )}
+                                        {link.title}
+                                        
+                                    </a>
+                                </Link>
+                                
                             </div>
                         ))
                     }
@@ -182,12 +131,9 @@ const NavTop: React.FC<Props> = ({ links}) => {
                             <div className="hidden md:block lg:hidden mr-5 pt-1 hover:text-blue-300"
                                 key={link.title + "aa"}
                             >
-                                <span className="text-gray-200 mr-1">
-                                    { link.icon}
-                                </span>
+                            
                                 <Link href={link.url} passHref >
                                     <a
-                                        onMouseEnter={()=> showCourses(false) } 
                                         className={ // Chang active link color to light blue if active
                                             router.pathname == link.url ? " border-b-2 border-solid border-yellow-500" : "hover:text-yellow-500"
                                         }
@@ -219,13 +165,10 @@ const NavTop: React.FC<Props> = ({ links}) => {
                                             <div className="hidden md:block lg:hidden mr-4 bg-blue-900 hover:bg-blue-600 hover:text-gray-50 shadow p-4"
                                                 key={link.title + "md"}
                                             >
-                                                <span className="text-gray-200 mr-4">
-                                                    { link.icon}
-                                                </span>
+                                                
                                                 
                                                 <Link href={link.url} passHref >
                                                     <a
-                                                        onMouseEnter={()=> showCourses(false) } 
                                                         className={ // Chang active link color to light blue if active
                                                             router.pathname == link.url ? "pb-2 border-b-2 border-solid border-yellow-500" : "pb-2 hover:text-yellow-500"
                                                         }
@@ -265,13 +208,10 @@ const NavTop: React.FC<Props> = ({ links}) => {
                                             <div className="block md:hidden bg-blue-900 border-solid border-r-2 border-blue-900 hover:bg-blue-600 hover:text-gray-50 shadow p-4"
                                                 key={link.title + "md"}
                                             >
-                                                <span className="text-gray-200 mr-4">
-                                                    { link.icon}
-                                                </span>
+                                                
                                                 
                                                 <Link href={link.url} passHref >
                                                     <a
-                                                        onMouseEnter={()=> showCourses(false) } 
                                                         className={ // Chang active link color to light blue if active
                                                             router.pathname == link.url ? "pb-2 border-b-2 border-solid border-yellow-500" : "pb-2 hover:text-yellow-500"
                                                         }
@@ -292,6 +232,8 @@ const NavTop: React.FC<Props> = ({ links}) => {
                 </div>
 
             </div>
+
+            
 
         </nav>
     );

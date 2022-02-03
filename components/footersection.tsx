@@ -13,15 +13,15 @@ export interface FooterSectionProps {
  
 const FooterSection: React.FC<FooterSectionProps> = ({links}) => {
     return ( 
-        <section className="footerHight text-gray-50">
+        <section className="footerHight text-gray-50 font-robo text-lg">
 
             <div className="w-full h-3/5 bg-gray-500 py-16 px-8 flex sm:flex-row">
                 <div className="w-1/2 lg:w-1/4 md:w-1/3">
                     <p>SOLUTIONS</p>
                     <ul className="text-sm pt-4 flex flex-col space-y-3">
                         <li>Web Development</li>
-                        <li>Digital Ad marketing</li>
-                        <li>MObile app development</li>
+                        <li>Digital Marketing</li>
+                        <li>Mobile app development</li>
                         <li>Custom software development</li>
                         
                     </ul>
@@ -60,27 +60,27 @@ const FooterSection: React.FC<FooterSectionProps> = ({links}) => {
                 
                 <div className="w-full md:w-1/2">
 
-                    <h2 className="font-bold text-xs">
-                        SUBSCRIBT TO OUR NEWS LETTER
+                    <h2 className="font-bold">
+                        SUBSCRIBE TO OUR NEWSLETTER
                     </h2>
 
-                    <p className="text-xs pr-4">
-                        Stay connected as we bring you more and more ICT informations.
+                    <p className="pr-4 text-md">
+                        Stay connected, watch out for our promos and updates
                     </p>
 
                 </div>
 
                 <div className="w-full md:w-1/2 flex pt-2 md:pt-0 md:justify-end">
-                    <form className="underline flex space-x-5">
+                    <form className="flex space-x-5">
                         <input 
                             type="text" 
-                            className="focus:border-transparent rounded-md w-40 sm:w-80 text-gray-600" 
+                            className="focus:outline-none rounded-md w-40 sm:w-80 text-gray-600 px-4" 
                             placeholder="Enter your email" 
                         />
 
                         <button 
                             type="submit"
-                            className="bg-blue-600 relative no-underline text-white p-4 shadow hover:shadow-inner hover:bg-blue-500"
+                            className="bg-blue-600 rounded-md text-white p-4 hover:bg-blue-500"
                         >
                             Subscribe
                         </button>

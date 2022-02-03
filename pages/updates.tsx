@@ -30,7 +30,7 @@ const Updates = ({articles}) => {
     }, [ num]);
 
     return (
-        <div className="text-xl leading-loose" >
+        <div className="" >
             <Head>
                 <title>Inbayelsa updates, news, events and anouncements</title>
                 <link rel="icon" href="/favicon.ico" />

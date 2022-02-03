@@ -11,7 +11,7 @@ import HeaderBar from '../components/headerBar';
 export default function Contact() {
 
   return (
-    <div className="text-xl leading-loose" >
+    <div className="" >
       <Head>
         <title>Contact us Inbayelsa.com</title>
         <link rel="icon" href="/favicon.ico" />

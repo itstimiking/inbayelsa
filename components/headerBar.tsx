@@ -5,7 +5,7 @@ interface data {
     sub: string
 }
 
-export interface HeaderBarProps {
+interface HeaderBarProps {
     data: data
 }
  
@@ -15,11 +15,8 @@ const HeaderBar : React.FC<HeaderBarProps> = ({data}) => {
 
     return ( 
         <div 
-            className="flex flex-col min-h-60 pt-28 w-full pb-12 -mt-10"
-            style={{
-                backgroundColor: theme.primary.rgb,
-                color: theme.text.rgb
-            }}
+            className={`flex flex-col min-h-60 pt-28 w-full pb-12 -mt-10 `}
+            style={{ backgroundColor:theme.primary.rgb, color:theme.text.rgb}}
         >
             <div className="container mx-auto px-12">
                 <h2 className="font-bold text-3xl pb-2"> 

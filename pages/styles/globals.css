@@ -5,6 +5,9 @@
  
 @layer utilities {
 
+    body{
+        line-height: 1.55;
+    }
     .banner-content{
         position:absolute;
     }

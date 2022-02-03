@@ -3,7 +3,6 @@ import Head from "next/head";
 
 import NavTop from "../components/nav";
 import HeaderSection1 from "../components/frontpage/header1";
-import HeaderSection2 from "../components/frontpage/header2";
 
 import SecondSection from "../components/frontpage/secondsection";
 import BlogSection from "../components/blogsection";
@@ -15,33 +14,33 @@ import { brands } from "../data/brands";
 import FooterSection from "../components/footersection";
 
 import { getAllPostsData } from "../lib/getPostData";
-import HeaderSection3 from "../components/frontpage/header3";
-import { useThemeContext } from "../context/themeContext";
 
 export default function Index({ articles }) {
 
-    const {theme} = useThemeContext();
+    const image = "url(/images/laptop_inbayelsa.jpg)";
 
     return (
-        <div className="text-xl leading-loose" >
+        <div className="font-robo text-lg" >
             <Head>
-                <title>Taking bayelsa to a digital space</title>
+                <title>Taking bayelsa into a digital space, Inbayelsa.com</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <NavTop links={navlinks} />
 
             <main className="text-gray-700">
-                <header className="flex -mt-14 py-50  justify-center relative banner overflow-hidden"
-                    style={{backgroundColor: theme.primary.rgb}}
+                <header 
+                    className="flex -mt-14 py-50 justify-center relative z-0 banner overflow-hidden"
+                    style={{
+                        backgroundImage:image,
+                        backgroundSize:"cover"
+                    }}
                 >
+                    <div className="absolute top-0 left-0 w-full h-full"
+                        style={{backgroundColor:"rgba(0,0,0,0.3)"}}
+                    ></div>
                     {/** Main Jumbotron Header section ----------------------- */}
                     <HeaderSection1 />
-                    <HeaderSection3 />
-
-                    {/** Header image section -------------------------------- */}
-
-                    <HeaderSection2 />
 
                 </header>
 
@@ -55,11 +54,8 @@ export default function Index({ articles }) {
                 <BlogSection articles={articles} />
 
                 <Brands brands={brands} />
-
-                <FooterSection links={navlinks} />
             </main>
-
-            <footer className="footer"></footer>
+            <FooterSection links={navlinks} />
         </div>
     );
 }

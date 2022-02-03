@@ -1,59 +1,44 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import { motion } from 'framer-motion';
+import Head from "next/head";
 
-import NavTop from '../components/nav';
-import TestimonySection from '../components/testimonysection';
-import FooterSection from '../components/footersection';
+import NavTop from "../components/nav";
+import FooterSection from "../components/footersection";
 
 import { navlinks } from "../data/data";
-import { ictCourses, proCourses} from "../data/courses";
-import { testimonies } from "../data/testimonies";
-import HeaderBar from '../components/headerBar';
-import SlideIn from '../components/animation/slideIn';
+import HeaderBar from "../components/headerBar";
 
 export default function CoursesIct() {
+    return (
+        <div className="">
+            <Head>
+                <title>Inbayelsa.com digital services and solutions.</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-  return (
-    <div className="text-xl leading-loose" >
-      <Head>
-        <title>Inbayelsa.com digital services and solutions.</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+            <NavTop links={navlinks} bgColor={true} />
 
-      <NavTop links={navlinks} bgColor={true}/>
+            <main className="text-gray-700">
+                {/* HEADER SECTION ------------------------------------------------------*/}
 
-      <main className="text-gray-700">
+                <HeaderBar
+                    data={{
+                        heading: "Our Services",
+                        sub: " We offer the following professional services.",
+                    }}
+                />
 
-{/* HEADER SECTION ------------------------------------------------------*/}
+                <section className="bg-white px-8 flex flex-wrap">
 
-        <HeaderBar data={{
-            heading: "Our Services", 
-            sub:" We offer the following professional services."
-          }} 
-        />
+                    <div className="w-11/12 h-96 bg-white rounded-lg shadow">
 
-        <section className="bg-white px-8 flex flex-wrap">
+                    </div>
+                </section>
 
-          {
-            ictCourses.map((service) => (
-              // Only show right border if its not the last index
-              <p></p>
-            ))
-          }
+                {/* FOOTER SECTION ------------------------------------------------------*/}
 
-        </section>
+                <FooterSection links={navlinks} />
+            </main>
 
-
-{/* FOOTER SECTION ------------------------------------------------------*/}
-
-        <FooterSection links={navlinks} />
-
-      </main>
-
-      <footer className="footer">
-
-      </footer>
-    </div>
-  )
+            <footer className="footer"></footer>
+        </div>
+    );
 }
