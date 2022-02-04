@@ -1,4 +1,4 @@
-
+import {useState, useEffect,useCallback} from "react";
 import Head from "next/head";
 
 import NavTop from "../components/nav";
@@ -15,9 +15,35 @@ import FooterSection from "../components/footersection";
 
 import { getAllPostsData } from "../lib/getPostData";
 
+
 export default function Index({ articles }) {
 
-    const image = "url(/images/laptop_inbayelsa.jpg)";
+    const images = [
+        "url(/images/scyify.jpg)",
+        "url(/images/scyfy1.jpg)"
+    ]
+    let counter = 0;
+    const [image, setImage] = useState(images[counter]);
+    const slide = useCallback(()=>{
+        let start;
+        setInterval(()=>{
+            counter++
+            if(counter < images.length){
+                setImage(images[counter]);
+            }else{
+                counter = 0;
+                setImage(images[counter])
+            }         
+        },6000)
+        
+    },[image,images,counter])
+
+    useEffect(()=>{
+        slide()
+        return ()=>{
+            //clearInterval(slide)
+        }
+    },[])
 
     return (
         <div className="font-robo text-lg" >
@@ -33,11 +59,12 @@ export default function Index({ articles }) {
                     className="flex -mt-14 py-50 justify-center relative z-0 banner overflow-hidden"
                     style={{
                         backgroundImage:image,
-                        backgroundSize:"cover"
+                        backgroundSize:"cover",
+                        transition: "background-image 2s"
                     }}
                 >
                     <div className="absolute top-0 left-0 w-full h-full"
-                        style={{backgroundColor:"rgba(0,0,0,0.3)"}}
+                        style={{backgroundColor:"rgba(0,0,0,0.7)"}}
                     ></div>
                     {/** Main Jumbotron Header section ----------------------- */}
                     <HeaderSection1 />
